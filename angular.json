@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "jaque"
+    }
+  },
+  "defaultProject": "jaque",
+  "cli": {
+    "analytics": false
+  }
 }

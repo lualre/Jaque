@@ -1,0 +1,50 @@
+
+  <div class="row header-content div50">
+    <div class="column">
+      <p> Usuarios</p>
+      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+    </div>
+    <div class="column">
+      <button class="button1">
+         <!-- <img src="/assets/eye.svg" class="icono">  -->
+         <i class="fas fa-eye"></i>
+         Previsualizar
+      </button>
+      <button class="button2">
+         <!-- <img src="/assets/add.svg" class="icono"> -->
+         <i class="fas fa-plus"></i>
+          Agregar nuevo usuario
+      </button>
+    </div>
+  </div>
+
+  <div class="usuarios">
+
+    <form [formGroup]="myForm">
+      <input type="text" formControlName="searchText" class="search" placeholder="BUSCAR USUARIO">
+      <input type="checkbox" class="check-hiden" id="sort" formControlName="sort" value="true">
+      <label for="sort" class="label-sort">a-z</label>
+    </form>
+
+    <label for="showAll">Todos</label>
+    <input type="checkbox" id="showAll" (change)="resetForm($event)">
+
+    <hr>
+
+    <div *ngFor="let user of users | searchUser: myForm.get('searchText').value:['name', 'email'] | sort: myForm.get('sort').value" class="cards">
+      <div class="card" style="text-align: center;">
+        <div class="imagen">
+          <img src="{{ user.picture }}" onerror="this.src='/assets/images/avatar.png';" alt="Avatar" style="width:70%; height: 100%;">
+        </div>
+
+        <div class="container">
+          <hr>
+          <h4><p> {{user.name}} {{user.fathersLastName}} {{user.mothersLastName}}</p></h4>
+          <b>{{user.email}}</b>
+          <br>
+          <div>{{user.rol}}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>

@@ -1,3 +1,8 @@
+# Versiones
+
+  Angular CLI: 10.0.4
+  Node: 12.18.3
+
 # Jaque
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
